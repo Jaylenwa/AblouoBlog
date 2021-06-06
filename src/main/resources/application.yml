@@ -1,0 +1,17 @@
+spring:
+  thymeleaf:
+#    mode: HTML
+    suffix: .html
+    prefix: classpath:/templates/
+  profiles:
+    active: pro
+  security:
+    user:
+      password: 111
+      name: 111
+
+comment.avater: /images/avatar.png
+
+
+
+
