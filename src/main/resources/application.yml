@@ -4,7 +4,7 @@ spring:
     suffix: .html
     prefix: classpath:/templates/
   profiles:
-    active: pro
+    active: dev
   security:
     user:
       password: 111

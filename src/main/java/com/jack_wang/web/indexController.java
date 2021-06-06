@@ -3,6 +3,8 @@ package com.jack_wang.web;
 import com.jack_wang.service.BlogService;
 import com.jack_wang.service.TagService;
 import com.jack_wang.service.TypeService;
+import com.jack_wang.util.CaptchaCodeUtil;
+import com.jack_wang.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -10,6 +12,10 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 public class indexController {
@@ -22,6 +28,7 @@ public class indexController {
 
     @Autowired
     private TagService tagService;
+
 
     @GetMapping("/")
     public String homeIndex(){
@@ -58,4 +65,5 @@ public class indexController {
         model.addAttribute("newblogs",blogService.listRecommendBlogTop(3));
         return "_fragments :: newbloglist";
     }
+
 }
