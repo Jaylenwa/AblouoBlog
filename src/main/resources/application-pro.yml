@@ -8,6 +8,10 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: false
+  redis:
+    host: 1.117.172.61
+    port: 6379
+    database: 0
 logging:
   level:
     root: warn

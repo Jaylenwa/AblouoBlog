@@ -29,7 +29,7 @@ public class LoginController {
     public void code(HttpServletResponse response, HttpServletRequest request) throws IOException {
         String ip = request.getRemoteAddr();
         String code = new CaptchaCodeUtil().randomStr(4);
-        redisUtil.set("code" + ip, code);
+        redisUtil.set("code" + ip, code,60*2);
         CaptchaCodeUtil captchaCodeUtil = new CaptchaCodeUtil(116, 36, 4, 15, code);
         captchaCodeUtil.write(response.getOutputStream());
     }
@@ -53,6 +53,7 @@ public class LoginController {
         String checkCode = (String)redisUtil.get("code" + ip);
 
         if (code != null && code.equalsIgnoreCase(checkCode)){
+            redisUtil.del("code" + ip);
             User user = userService.checkUser(username, password);
             if (user != null) {
                 user.setPassword(null);

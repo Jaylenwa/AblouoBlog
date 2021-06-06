@@ -9,10 +9,9 @@ spring:
       ddl-auto: update
     show-sql: true
   redis:
-    host: 127.0.0.1
+    host: 1.117.172.61
     port: 6379
     database: 0
-
 logging:
   level:
     root: info
