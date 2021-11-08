@@ -9,7 +9,7 @@ spring:
       ddl-auto: none
     show-sql: false
   redis:
-    host: 1.117.172.61
+    host: localhost
     port: 6379
     database: 0
 logging:
